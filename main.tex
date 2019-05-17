@@ -1,14 +1,85 @@
-\documentclass{article}
-\usepackage[utf8]{inputenc}
+\documentclass[12pt,a4paper]{article}
+\renewcommand{\baselinestretch}{1.5} 
+\usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}	
+\usepackage[english]{babel}
+\usepackage{graphicx}
+% \usepackage[fontsize=14]{scrextend}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{varwidth}
+\usepackage{chngpage}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{svg}
+\usepackage[noabbrev]{cleveref}
+\usepackage[toc,page]{appendix}
 
-\title{iot-project}
-\author{jonas.burster }
-\date{May 2019}
+% \usepackage[backend=bibtex,style=authoryear-icomp,sortlocale=de_DE,natbib=true,url=false, doi=true,eprint=false]{biblatex}
+\usepackage[style=ieee, backend=biber]{biblatex}
+% \bibliographystyle{ieeetr}
+\bibliography{bibl.bib}
+\addbibresource{bibl.bib}
+\include{bibl.bib}
+
+\pagestyle{fancy}
+\fancyhf{}
+% \title{Gaming Systems}
+\title{Wireless Goal Recognition in Foosball}
+\author{Jonas Burster - 20165136\\jburst16@student.aau.dk}
+
+
+\date{xx.xx.2019}
+\pagestyle{fancy}
+\makeatletter
+\let\runtitle\@title
+\let\runauthor\@author
+\makeatother
+\lhead{\runtitle}
+\rhead{Jonas Burster}
+
+\graphicspath{{pictures/}}
 
 \begin{document}
-
+% \includepdf[pages=-]{PDF/page_0.pdf}
 \maketitle
 
-\section{Introduction}
+% \begin{figure}
+% \vspace{-18cm}
+%     \centering
+%     \includegraphics[scale=0.4]{agillic-full-product-ball.png}
+%     \label{fig:agillic-logo}
+% \end{figure}
+% \clearpage
+
+
+
+\cfoot{\thepage}
+\pagenumbering{Roman}
+
+%\citetrackerfalse
+\clearpage
+% \tableofcontents
+% \listoffigures
+\clearpage
+
+\pagenumbering{arabic}
+\input{struct/01-introduction.tex}
+\clearpage
+
+\printbibliography[heading=bibintoc]
+\clearpage
+
+\let\svaddcontentsline\addcontentsline
+\renewcommand\addcontentsline[3]{%
+  \ifthenelse{\equal{#1}{lof}}{}%
+  {\ifthenelse{\equal{#1}{lot}}{}{\svaddcontentsline{#1}{#2}{#3}}}}
+ 
+ \pagenumbering{arabic}
+ 
+% \input{append.tex}
 
 \end{document}
