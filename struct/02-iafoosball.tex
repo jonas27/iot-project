@@ -1,9 +1,20 @@
 \section{IAFoosball}
-IAFoosball is the name of the project and startup we developed in the previous semester. It is meant to make foosball more interactive, to show and share statistics, and make it more sociable by using new technologies. The planned services include global and private rankings, table finder, friends, automatic tournaments and more. Because it is part of an university project, we used the latest and greatest technology. The front end is written in Flutter and preact, the back end in Go and all communication is done through gRPC, which uses proto buffs and HTTP/2 (i.e. SPDY). Figure shows the foosball table. It is the development version, so all features we would like to offer are included here. They include, speakers with Spotify integration, LED lights, automatic ball release and a tablet. 
-
-\begin{figure}
+IAFoosball is the name of the project and startup we developed in the previous semester. It is meant to make foosball more interactive, to show and share statistics, and make it more sociable by using new technologies. The planned services include global and private rankings, table finder, friends, automatic tournaments and more. Because it is part of an university project, we used the latest and greatest technology. The front end is written in Flutter and pReact, the back end is separated in containerized microservices written in Go and all communication is done through gRPC, which uses protobuffs and HTTP/2. \Cref{fig:architectureOld} shows this architecture.
+\begin{figure}[h!]
     \centering
-    \caption{The old IAFoosball gooal}
-    \includegraphics[width=0.3\textwidth]%
-    {goal_old.png}% picture filename
-\end{figure}
+    \includegraphics[scale=0.2]{figures/architecture-old.png}% picture filename
+    \caption{The old IAFoosball architecture}\label{fig:architectureOld}
+\end{figure}\\
+The foosball table in \cref{fig:architectureOld} is the development version, so it is a fully featured version. This includes, speakers with Spotify integration, LED lights, automatic ball release and a tablet. The software and hardware running on the table is not new not portable, especially concerning the goals. \Cref{fig:goalOld} shows the electronics of the old goal setup.
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{figures/goal-old.png}% picture filename
+    \caption{The old IAFoosball goal}\label{fig:goalOld}
+\end{figure}\\
+The sensors were directly connected to raspberry pi and a simple javascript application registered the goals and send them to a remote server. This required a power outlet and a raspberry pi on each table. It also required cables from each goal to the raspberry pi. This approach did not scale well. Hence, we re-thought the design, making it more varsatile, easier to integrate and manage. 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.3]{figures/goal-new.png}% picture filename
+    \caption{The new IAFoosball goal}\label{fig:goalNew}
+\end{figure}\\
+\Cref{fig:goalNew} shows this new setup. Marked in grey are the components used for each goal. The esp32 is the component doing the computation and sending data to a raspberry pi via bluetooth low energy (BLE). It is connected to 
