@@ -1,0 +1,26 @@
+\section{Requirements}
+The requirements are split into functional and non-functional requirements, where the former are definitions of what a system is supposed to do and the latter are requirments describe how the system is supposed to be. The functional requirements
+The functional requirements are straight forward and listed in \cref{tab:funcReq}
+
+The criteria for the non-functional requirements are shown in \cref{tab:nonfuncReq}.
+% https://en.wikipedia.org/wiki/Computer_programming
+% \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
+    \begin{table}[]
+        \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
+        \multicolumn{4}{l}{Non-functional requirements}                                                                                                                                                    \\ \hline
+        Area            & ID  & Name                  & Description                                                                                                                                        \\ \hline
+        Reliability     & 100 & Downtime              & The downtime due needs to be less once per month.                                                                                                  \\
+                        & 101 & Recording failures    & Less than 5 percent incorrect readings.                                                                                                            \\
+        Robustness      & 200 & Interference          & The system should be able to deal with at least 10 bluetooth enabled devices  nearby.                                                              \\
+                        & 201 & Transmission failures & There should not be more 0.01 percent of transmission failures, including all reasons.                                                             \\
+                        & 203 & Incorrect data        & There should not be more 0.0001 percent of wrong data transmission.                                                                                \\
+                        & 202 & Crashes               & In case of a crash, the software must be able to recover automatically.                                                                            \\
+        Portability     & 300 & Supported platforms   & The application needs to supported on a wide variety of IoT devices for future changes.                                                            \\
+        Maintainability & 400 & Updates               & The software needs to be updatable over the air (OTA).                                                                                             \\
+                        & 401 & Centralization        & As long as a table is connected to the Internet (also indirectly through the raspberry pi), all updates must be available through a central point. \\
+                        & 402 & Bug fixes             & All bugs need to be addressed latest 6 months after discovery                                                                                      \\
+        Efficiency      & 500 & Battery life          & The system needs to able to life on a single battery charge for at least two weeks with no more than 20 games per day.                             \\
+                        & 501 & Battery replacement   & The battery needs to be able to charge to above 80 percent of its original value after 2 years, with 25 recharges a year.                         
+        \end{tabular}\label{tab:nonfuncReq}
+        \end{table}
+In contrast to many consumer facing technologies usability is not part of the requirements, as the enduser should have as little interaction with the system as possible and physical maintenance is only carried out by professionals\footnote{They would still be nice, but due to time limitations we excluded them.}.\\
