@@ -3,20 +3,20 @@ The Internet of Things (IoT) will change humanity in profound and unforeseeable 
 In 2016 a botnet with over 600k infected devices, primarily embedded and IoT devices, overwhelmed several high-profile targets like the DNS provider Dyn with a massive distributed denial-of-service (DDoS) attacks. This caused a temporary outage of their DNS servers making many webpages, among others  Twitter, Spotify und Amazon, temporally inaccessible.\\
 The sheer number of IoT devices also makes it important to think about their sustainability. Many IoT devices are cheap to manufacturer and thus only used for a short period of time and are hard to update. This makes basically makes them a throwaway product. Many IoT devices have a stable power connection and are not designed to be energy efficient. \\
 IoT devices are by design often close to humans and are intended to analyze what they say, do and how their body reacts. This leads many people to assume that IoT, especially smart home and activity tracking are incompatible with privacy\cite{5Reasons41:online}. In the past many companies overstepped the line what is socially excepted and had to back-roll certain "features"\cite{PrivacyIoT50:online}. For many consumers, privacy is the major concern in smart home\cite{PrivacyIoT50:online}.\\
-These four areas, feasability, security, sustainability and privacy, are the four areas shaping the development of IoT and shaped the technology and architecture of the product developed as part of this project. The reminder or this report is structured as follows,  
+These four areas, technological improvements, security, sustainability and privacy, are the four areas shaping the development of IoT and the main drivers for many technological as well as architectural decisions in the development process of the product developed as part of this project. The reminder or this report is structured as follows, *** 
 
 \subsection{Motivation}
-In this project we develop a new wireless goal for foosball tables. The backend software to for the interactive foosball experience was part of a previous project which is shown in the next chapter. The table and the backend software works as intended, but the physical implementation of the table, shown in figure *** is tailor made for the table we used in the development and not portable across different brands and designs. 
+In this project we develop a new wireless goal for foosball tables. The backend software to manage user data and a primary architecture was part of a previous project and is shortly discussed in the next chapter. The table and the backend software works as intended, but the physical implementation of the table, shown in figure *** is tailor made for the table we used in the development and not portable across different brands and designs. 
 \\
 SHOW PICTURE OF TABLE!!\\
 
-But in order to make our solution attractive to bars and companies the solution neeeds to be easy to implement and manage. Thus, the research question for this project is as follow:
+In order to make our solution attractive to bars and companies alike the solution neeeds to be easy to implement and manage. Thus, the research question for this project is as follow:
 \begin{center}
     \textit{What is the optimal design for a scalable wireless foosball goal?}
 \end{center}
-We will answer the question based on the three chriteria: 
+We will answer the question based on the four aspects, the technology, security, sustainability and privacy. 
 
 \subsection{Delimitations}
-Due to time and equipment limitations, the findings from our tests are useful as a general reference point when discussing the strength and weaknesses of competing solutions. But the measurments do not follow strict academic rules and are thus not of statistical significance. \\
-While also limit the main scope of this report to how we send and receive data from the goal to its controller. We will show the entire architecture but it is not part of the requirements and often we will not analyze for this particular implementation.\\
+Due to time and equipment limitations we will focus on the technology in this report. Also, the findings from our tests are useful as a general reference point when discussing the strength and weaknesses of competing solutions. But as the tests do not follow strict academic rules, these findings are not statistical significant. \\
+We also limit the main scope of this report to how we send and receive data from the goal to its controller. We will show the entire architecture but it is not part of the requirements and often not analyze or explained as throughly as the goal sensors.\\
 Finally, we did not gather input from experts. This is something we would have wished to do, but was not possible due to time constraints.
