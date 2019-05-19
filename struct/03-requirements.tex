@@ -1,10 +1,11 @@
 \section{Requirements}
-The requirements are split into functional and non-functional requirements, where the former are definitions of what a system is supposed to do and the latter are requirments describe how the system is supposed to be. The tables are included at the end of the chapter to enhance readability.\\
-The functional requirements are classified with the MoSCoW method into Must, Should, Could, and Would and are listed in \cref{tab:funcReq}\footnote{Class stands for the MoSCoW classifier.}. The musts reflect the requirements from this course for our project, which is to create a functional IoT setup, using a low power transmission technology.
-
+The requirements are split into functional and non-functional requirements, where the former are definitions of what a system is supposed to do and the latter requirments describing how the system is supposed to be. The respective tables are included at the end of the chapter to enhance readability.\\
+The functional requirements are classified with the MoSCoW method into Must, Should, Could, and Would and are listed in \cref{tab:funcReq}\footnote{Class stands for the MoSCoW classifier.}. The musts reflect the requirements for our project from this course. Our objective is to create a functional wireless automatic goal registration device driven by a battery and having a low maintenance cost. Power saving mechanisms are thus a top priority and tested in the respective chapter (add reference). The overall architecture is also very important for mangement and fault tolerance. But as these topics are not an essential part of the curriculum they are not explained extensively. Finally, "security in IoT devices is either neglected or treated as an afterthought"\cite{wurm2016securityAftertought} by many manufacturers. We split security into two areas, architecture security and encryption, as changing a system is often much harder than upgrading the encryption.\\
 The criteria for the non-functional requirements are shown in \cref{tab:nonfuncReq}.
+In contrast to many consumer facing technologies usability is not part of the requirements, as the enduser should have as little interaction with the system as possible and physical maintenance is only carried out by professionals\footnote{They would still be nice, but due to time limitations we excluded them.}.\\ 
+We cover the areas: Reliability, Robustness, Portability, Maintainability and Efficiency, with a focus on this course curriculum.
 
-In contrast to many consumer facing technologies usability is not part of the requirements, as the enduser should have as little interaction with the system as possible and physical maintenance is only carried out by professionals\footnote{They would still be nice, but due to time limitations we excluded them.}.\\
+\clearpage
 % \begin{tabular}[t]{ l p{2.4cm} l p{7.6cm}}
 \begin{table}[]
     \begin{tabular}[t]{ l p{2.4cm} l p{7.6cm}}
@@ -35,6 +36,7 @@ In contrast to many consumer facing technologies usability is not part of the re
         \end{tabular}\label{tab:funcReq}
     \end{table}
 
+    \clearpage
 % https://en.wikipedia.org/wiki/Computer_programming
 % \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
     \begin{table}[]
@@ -55,4 +57,5 @@ In contrast to many consumer facing technologies usability is not part of the re
                         & 501 & Battery replacement   & The battery needs to be able to charge to above 80 percent of its original value after 2 years, with 25 recharges a year.                         
         \end{tabular}\label{tab:nonfuncReq}
         \end{table}
+        \clearpage
 
