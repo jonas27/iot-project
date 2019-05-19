@@ -1,13 +1,36 @@
 \section{Requirements}
 The requirements are split into functional and non-functional requirements, where the former are definitions of what a system is supposed to do and the latter are requirments describe how the system is supposed to be. The functional requirements
-The functional requirements are straight forward and listed in \cref{tab:funcReq}
+The functional requirements are straight forward and listed in \cref{tab:funcReq}.
+    \begin{table}[]
+        \begin{tabular}{llll}
+            \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
+    \multicolumn{4}{l}{Functional Requirements}                                                                                                                                                                                     \\ \hline
+    ID  & Name                                                                & Classification & Description                                                                                                                        \\ \hline
+    100 & Register goals                                                      & Must           & The system must be able to automatically register goals                                                                            \\
+    101 & Transmit goals                                                      & Must           & The system must be able to automatically transmit goal information to the edge device.                                             \\
+    102 & OTA updates                                                         & Should         & The microcontroller should support over the air (OTA) updates                                                                      \\
+    103 & \begin{tabular}[c]{@{}l@{}}Low energy \\ transmission\end{tabular}  & Must           & The microcontroller and its  transmission partner must be able to communicate via a low energy transmission protocol               \\
+    104 & Power modes                                                         & Must           & The microcontroller must be able to support different power mode in which it can operate to save power during unused periods.      \\
+    105 & \begin{tabular}[c]{@{}l@{}}Wake up \\ from sensor\end{tabular}      & Must           & The microcontroller must be able to wake up from an external sensor input.                                                         \\
+    106 & \begin{tabular}[c]{@{}l@{}}Wake up\\ from timeout\end{tabular}      & Must           & The microcontroller must be able to wake up after a predefined timeout.                                                            \\
+    107 & \begin{tabular}[c]{@{}l@{}}Transmission\\ Range\end{tabular}        & Must           & The transmission range must be larger than 5 meters without blockage.                                                              \\
+    108 & Pin reads                                                           & Must           & The microcontroller must support reading from input pins.                                                                          \\
+    109 & \begin{tabular}[c]{@{}l@{}}Centralized\\ configuration\end{tabular} & Should         & All configurations should be synchronized across the nodes in the system.                                                          \\
+    110 & \begin{tabular}[c]{@{}l@{}}Node fault\\ tolerance\end{tabular}      & Should         & The state of each node should be synchronized in the system, so that in case of an error, the last operable state can be recovered \\
+    111 & \begin{tabular}[c]{@{}l@{}}Adjustable\\ Goals setup\end{tabular}    & Should         & The goals setup need to able to adjust in their width to cover a variety of different goal sizes                                   \\
+    112 & \begin{tabular}[c]{@{}l@{}}Containers\\ (excl microc.)\end{tabular} & Should         & All applications, excluding the microcontroller) should run inside containers.                                                     \\
+    113 & Containers                                                          & Would          & The microcontroller code runs inside containers as well.                                                                           \\
+    114 & \begin{tabular}[c]{@{}l@{}}Single \\ binaries\end{tabular}          & Could          & All applications should be packaged in one binary.                                                                                 \\
+    115 & \begin{tabular}[c]{@{}l@{}}Edge\\ storage\end{tabular}              & Would          & The edge part should be able to count goals and syncronize with user devices without the Internet.                                 \\    
+    \end{tabular}\label{tab:funcReq}
+    \end{table}
 
 The criteria for the non-functional requirements are shown in \cref{tab:nonfuncReq}.
 % https://en.wikipedia.org/wiki/Computer_programming
 % \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
     \begin{table}[]
         \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
-        \multicolumn{4}{l}{Non-functional requirements}                                                                                                                                                    \\ \hline
+        \multicolumn{4}{l}{Non-Functional Requirements}                                                                                                                                                    \\ \hline
         Area            & ID  & Name                  & Description                                                                                                                                        \\ \hline
         Reliability     & 100 & Downtime              & The downtime due needs to be less once per month.                                                                                                  \\
                         & 101 & Recording failures    & Less than 5 percent incorrect readings.                                                                                                            \\
