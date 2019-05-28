@@ -1,18 +1,19 @@
 \section{IAFoosball}
-IAFoosball is the name of the project and startup we developed in the previous semester. It is meant to make foosball more interactive, to show and share statistics, and make it more sociable by using new technologies. The planned services include global and private rankings, table finder, friends, automatic tournaments and more. Because it is part of an university project, we used the latest and greatest technology. The front end is written in Flutter and pReact, the back end is separated in containerized microservices written in Go and all communication is done through gRPC, which uses protobuffs and HTTP/2. \Cref{fig:architectureOld} shows this architecture.
+IAFoosball is the name of the project and startup we developed in the previous semester. It is meant to make foosball more interactive, to show and share statistics, and make it more sociable by using new technologies. The planned services include global and private rankings, table finder, friends, automatic tournaments and more. Because it is part of an university project, we used the latest and greatest technology. The front end is written in Flutter and pReact, the back end is separated in containerized microservices written in Go and all communication is done through gRPC, which uses protobuffs and HTTP/2. \Cref{fig:architectureCurr} shows this architecture.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.2]{figures/architecture-old.png}% picture filename
-    \caption{The old IAFoosball architecture}\label{fig:architectureOld}
+    \caption{The current IAFoosball architecture}\label{fig:architectureCurr}
 \end{figure}
 
-The foosball table in \cref{fig:architectureOld} is the development version and has all features. It includes, speakers with Spotify integration, LED lights, automatic ball release and a tablet. However, the software and hardware power the table is not new  and not portable. To make IAFoosball more compelling for people and business which just want goal counting and possibly ball speed measurments, we wanted to cut down on features and instead concentrate on quality.\\
+The foosball table in ***PLEASE UPLOAD PICTURE***% \cref{fig:} 
+is the development version and has all features. It includes, speakers with Spotify integration, LED lights, automatic ball release and a tablet. However, the software and hardware used on the table does not life up to the software standards at IAFoosball. The software needs to be updated locally without a CI/CD (continous integration and continous delivery) pipeline and is attached physically to the IoT gateway, the raspberry pi. This makes it very hard to scale and not mainstream suitable. To make IAFoosball more compelling for people and business which just want goal counting, and possibly ball speed measurments, we wanted to cut down on features and instead concentrate on quality.\\
 
 
 \subsection{Goal Design}
-The goal design is the primary part of this report and in our opinion the most lacking part in the old setup. 
-\Cref{fig:goalOld} shows the electronics of the old goal setup.
+The goal design is the primary part of this report and the most lacking part in the old setup. 
+\Cref{fig:goalOld} shows the electronic wiring of the old goal.
 
 \begin{figure}[h!]
     \centering
