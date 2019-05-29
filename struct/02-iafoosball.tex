@@ -29,5 +29,5 @@ The sensors were directly connected to Raspberry Pi, and a simple javascript app
     \caption{The new IAFoosball goal}\label{fig:goalNew}
 \end{figure}
 
-\Cref{fig:goalNew} shows this new setup. Marked in grey are the components used for each goal, a battery (we use a lithium-ion battery), one laser, one light sensor and one esp32. To measure goal speed we would need to have to lasers and two sensors. The esp32 is the component doing the computation and sending data to a Raspberry Pi via bluetooth low energy (BLE). It is powered by a battery pack and only active when the need arises.\\
+\Cref{fig:goalNew} show one option of this new setup. Marked in grey are the components used for each goal, a battery (we use a lithium-ion battery), one laser, one light sensor and one esp32. In this setup, the laser and sensors, and the esp32 are powered seperately and the esp32 has no control of the laser and sensor. We will discuss an alternative approach in the chapter Gaol Design. To measure goal speed we would need to have to lasers and two sensors. The esp32 is the component doing the computation and sending data to a Raspberry Pi via bluetooth low energy (BLE). It is powered by a battery pack and only active when the need arises.\\
 
