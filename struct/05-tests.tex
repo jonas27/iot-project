@@ -37,7 +37,7 @@ The esp32 development board from wemos consumes around $43mA$ in idle and $0.014
 \begin{figure}[h!]
     \centering
     \includegraphics[scale=0.4]{figures/esp32WroomWemos.png}% picture filename
-    \caption{ESP32 wroom (left) and Wemos development board.}\label{fig:esp32Comp}
+    \caption{ESP32 wroom (left) and Wemos development board (right).}\label{fig:esp32Comp}
 \end{figure}
 
 The development board has a microusb controller and additional current controls and a power LED. These extra components add up to the significant power consumption difference. For the production we thus plan on using a esp32 Wroom and soldier the connections ourselfs. Thus, instead of using our numbers we will use the numbers from the esp32 wroom controller\cite{InsightI15esp32ModesWroom:online}.\\
@@ -47,19 +47,23 @@ The power consumption also changes during boot time and during data transmission
 In our tests, waking up from deepsleep took around $250ms$ and increased current consumption to about $80mA$\footnote{This was done via eye measurment with a lot of fluctations, so the numbers are really only approximates.}. Especially, the wake up time seems quite slow and we would like to test this further and search for wake up optimizations in further research.
 During the initialization of the bluetooth radio power consumption was similar to the wake up, again showing that the processor is tasked more heavily. Sending and receiving of data, the power consumption increased to $50mA$ but for such short time periods that in our calculation we omit sending information. Unfortuately, we did not have the time to test how much power it cost to act as a slave and search for ble beacons and receive data.\\
 
-To summarize each wake up costs
+To summarize in idle the esp32 consumes
+\begin{equation*}
+    0.02A * 5V *1h= 0.1Wh
+\end{equation*}
+while each wake up costs
 \begin{equation*}
     0.08A * 5V *1h= 0.4Wh
 \end{equation*}
-per hour so for a startup time of $1/3s$  that constitutes to 
+per hour so for a startup time of $\frac{1}{3}s$  that constitutes to 
 \begin{equation*}
-    0.4Wh / (3600 / (1/3)) = 0.000037W = 0.037mW
+    0.4Wh / (3600 / \frac{1}{3}) = 0.000037W = 0.037mW
 \end{equation*}
-Initializing the bluetooth radio is fast at around $1/10s$ and consumes 
-\begin{equation*}
-    0.08A * 5V * 1h= 0.4Wh \\
-    0.4Wh / (3600 / (1/10)) = 0.000011W = 0.011mW 
-\end{equation*}
+Initializing the bluetooth radio is fast at around $\frac{1}{10}s$ and consumes 
+\begin{gather*}
+        0.08A * 5V * 1h = 0.4Wh \\
+        0.4Wh / (3600 / \frac{1}{10}) = 0.000011W = 0.011mW 
+\end{gather*}
 
 \subsection{Summary}
-Together the laser and sensor consume $0.133W$. The esp32 consumes $0.01mA$ in deepsleep and $20mA$ in idle. It spikes at around $80mA$ for initialization periods which total $4.3/10$ and thus each start costs $0.048mW$.
+Together the laser and sensor consume $0.133W$. The esp32 consumes $0.01mA$ in deepsleep and $20mA$ in idle. It spikes at around $80mA$ for initialization periods which total $\frac{4.3}{10}s$ and thus each start costs $0.048mW$.

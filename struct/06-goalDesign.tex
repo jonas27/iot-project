@@ -1,5 +1,12 @@
-\section{Goal design}
-As shown in the summary just before this chapter
+\section{Goal Design}
+As mentioned in the beginning of this report, the major influencer for the goal design is the battery consumption. We presented our findings on how much battery each goal component uses in the chapter Test and are now ready to reason upon these findings.
+
+The power consumption of each component is quite significant
+
+let pin run high.
+https://docs.espressif.com/projects/esp-idf/en/latest/api-reference/peripherals/gpio.html#_CPPv216rtc_gpio_hold_en10gpio_num_t
+
+
 
 
 Together the laser and sensor consume $0.133W$. The esp32 consumes $0.01mA$ in deepsleep and $20mA$ in idle. It spikes at around $80mA$ for initialization periods which total $4.3/10$ and thus each start costs $0.048mW$.
