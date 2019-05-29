@@ -24,11 +24,11 @@ To summarize, together the sensor and laser consume around
   \end{equation*}
 in idle and a little bit more when a goal is scored. Thus the power consumption in one day is
 \begin{equation*}
-    0.133W * 24 = 3.19Whr
+    0.133W * 24 = 3.19Wh
 \end{equation*}
 This is quite a lot especially running on a battery with only
 \begin{equation*}
-    0.133W * 24 = 12Whr
+    0.133W * 24 = 12Wh
 \end{equation*}
 
 \subsection{ESP32 Modes}
@@ -40,16 +40,16 @@ The esp32 development board from wemos consumes around $43mA$ in idle and $0.128
     \caption{ESP32 wroom (left) and Wemos development board.}\label{fig:esp32Comp}
 \end{figure}
 
-The development board has a microusb controller and many integrated circuits to prevent short circuits and other problems as well as over an LED, microUSB in and buttons for reseting and power of microUSB. All these extra components add up to the significant power consumption difference. For the production we will thus use esp32 wrooms and soldier the connections our selfs. So instead of using our numbers, we will use the numbers from the esp32 wroom controller.\\
+The development board has a microUSB controller and many integrated circuits to prevent short circuits and other problems as well as over an LED, microUSB in and buttons for reseting and power of microUSB. All these extra components add up to the significant power consumption difference. For the production we will thus use esp32 wrooms and soldier the connections our selfs. So instead of using our numbers, we will use the numbers from the esp32 wroom controller.\\
 
 The power consumption also changes during boot time and while bluetooth is active. In the former, the processor takes a lot of power, while in the latter it is the radio chip, including antenna. \\
 
-In our tests waking up from deepsleep took around $300ms$ and increased current consumption to about $80mA$ \footnote{This was done via eye measurment with a lot of fluctations, so the numbers are really only approximates.}. Especially, the wake up time seems quite slow and we would like to test this further and search for wake up optimizations in further research.
+In our tests waking up from deepsleep took around $300ms$ and increased current consumption to about $80mA$ \footnote{This was done via eye measurement with a lot of fluctuations, so the numbers are really only approximates.}. Especially, the wake up time seems quite slow and we would like to test this further and search for wake up optimizations in further research.
 During sending and receiving of data, the power consumption increased to $70mA$.\\
 
 To summarize each wake up costs at least
 \begin{equation*}
-    80mA * 7V / 3600 * (3/10) = 12Whr
+    80mA * 7V / 3600 * (3/10) = 12Wh
 \end{equation*}
 
 
