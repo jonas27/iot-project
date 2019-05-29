@@ -1,12 +1,12 @@
 \section{Requirements}
-The requirements are split into functional and non-functional requirements, where the former are definitions of what the system is supposed to do and the latter requirments describing how the system is supposed to be. The respective tables are included at the end of the chapter to enhance readability.\\
-The functional requirements are classified with the MoSCoW method into Must, Should, Could, and Would and are listed in \cref{tab:funcReq}\footnote{Class stands for the MoSCoW classifier.}. The musts reflect the requirements for our project from this course. Our objective is to create a functional wireless automatic goal registration device driven by a battery and having a low maintenance cost. Power saving mechanisms are thus a top priority and tested in the respective chapter (add reference). The overall architecture is also very important for mangement and fault tolerance. But as the topics are not an essential part of the curriculum they are not explained extensively. Finally, "security in IoT devices is either neglected or treated as an afterthought"\cite{wurm2016securityAftertought} by many manufacturers. Security is part of the curriculum, but also something encompassing communication as well as the system design. We thus split security into two areas, architecture security and encryption, changing a system is often much harder than upgrading the encryption. Encryption is "only" ranked as a should, as a functioning prototype is more important.\\
+The requirements are split into functional and non-functional requirements, where the former are definitions of what the system is supposed to do and the latter requirements describing how the system is supposed to be. The respective tables are included at the end of the chapter to enhance readability.\\
+The functional requirements are classified with the MoSCoW method into Must, Should, Could, and Would and are listed in \cref{tab:funcReq}\footnote{Class stands for the MoSCoW classifier.}. The musts reflect the requirements for our project from this course. Our objective is to create a functional wireless automatic goal registration device driven by a battery and having a low maintenance cost. Power saving mechanisms are thus a top priority and tested in the respective chapter (add reference). The overall architecture is also very important for management and fault tolerance. But as the topics are not an essential part of the curriculum they are not explained extensively. Finally, "security in IoT devices is either neglected or treated as an afterthought"\cite{wurm2016securityAftertought} by many manufacturers. Security is part of the curriculum, but also something encompassing communication as well as the system design. We thus split security into two areas, architecture security and encryption, changing a system is often much harder than upgrading the encryption. Encryption is "only" ranked as a should, as a functioning prototype is more important.\\
 The criteria for the non-functional requirements are shown in \cref{tab:nonfuncReq}.
 In contrast to many consumer facing technologies usability is not part of the requirements, as the enduser should have as little interaction with the system as possible and physical maintenance is only carried out by professionals\footnote{They would still be nice, but due to time limitations we excluded them.}.\\ 
 The non-functional requirements cover the areas: Reliability, Robustness, Portability, Maintainability and Efficiency, again, focusing on this course curriculum. How to make the device as power efficient as possible will be the biggest discussion point, again.
 
 \clearpage
-% \begin{tabular}[t]{ l p{2.4cm} l p{7.6cm}}
+\begin{tabular}[t]{ l p{2.4cm} l p{7.6cm}}
 \begin{table}[]
     \begin{tabular}[t]{ l p{2.4cm} l p{7.6cm}}
         \multicolumn{4}{l}{Functional Requirements}                                                                                                                                           \\ \hline
@@ -37,10 +37,10 @@ The non-functional requirements cover the areas: Reliability, Robustness, Portab
         117 & Verified updates          & Would          & The microcontroller would only install signed and verified updates.                                                                \\                        
         \end{tabular}\label{tab:funcReq}
     \end{table}
-
+\end{tabular}
     \clearpage
 % https://en.wikipedia.org/wiki/Computer_programming
-% \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
+ \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
     \begin{table}[]
         \begin{tabular}{ l l p{2.5cm} p{7.1cm}}
         \multicolumn{4}{l}{Non-Functional Requirements}                                                                                                                                                    \\ \hline
@@ -52,12 +52,13 @@ The non-functional requirements cover the areas: Reliability, Robustness, Portab
                         & 203 & Incorrect data        & There should not be more 0.0001 percent of wrong data transmission.                                                                                \\
                         & 202 & Crashes               & In case of a crash, the software must be able to recover automatically.                                                                            \\
         Portability     & 300 & Supported platforms   & The application needs to supported on a wide variety of IoT devices for future changes.                                                            \\
-        Maintainability & 400 & Updates               & The software needs to be updatable over the air (OTA).                                                                                             \\
+        Maintainability & 400 & Updates               & The software needs to be update table over the air (OTA).                                                                                             \\
                         & 401 & Centralization        & As long as a table is connected to the Internet (also indirectly through the raspberry pi), all updates must be available through a central point. \\
                         & 402 & Bug fixes             & All bugs need to be addressed latest 6 months after discovery                                                                                      \\
         Efficiency      & 500 & Battery life          & The system needs to able to life on a single battery charge for at least two weeks with no more than 20 games per day.                             \\
                         & 501 & Battery replacement   & The battery needs to be able to charge to above 80 percent of its original value after 2 years, with 25 recharges a year.                         
         \end{tabular}\label{tab:nonfuncReq}
         \end{table}
+        \end{tabular}
         \clearpage
 
