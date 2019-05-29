@@ -1,7 +1,7 @@
 \section{Measurements and Tests}
 % Laser: KY 008
 % Photo Resistor: KY
-The measurements and tests cover the power drain from the sensor, laser and the esp32l inlcuding deepsleep and bluetooth, to determine the optimal setup. The setup for the measurement or test is explained in each section. Again, the tests do not aim for scientific and statisitcal significance but as a guiding point. Their goal is to provide an order of magnitude of the power consumption of the individual components to guide future architectural decisions. 
+This chapter covers the power drain from the sensor, laser and the esp32, inlcuding deepsleep and bluetooth, to determine the optimal setup. The measurement or test setup is explained in each respective section. The tests are guiding points and are not intended for scientific or statisitcal significance. Their goal is to provide an order of magnitude of the power consumption of the individual components to guide future architectural decisions. This chapter will first look at the laser and sensor measurments and afterwards at the power consumption of normal/idle and deepsleep and then how much a wake up from deepsleep costs and transmitting data.
 
 
 \subsection{Laser}
@@ -31,28 +31,42 @@ This is quite a lot especially running on a battery with only
     0.133W * 24 = 12Wh
 \end{equation*}
 
-\subsection{ESP32 Modes}
-The esp32 development board from wemos consumes around $43mA$ in idle and $0.128mA$ in deepsleep. This is much higher than esp32 wroom board which is supposed to only consume $20mA$ in idle and $0.01mA$ in deepsleep\cite{InsightI15esp32ModesWroom:online}. \Cref{fig:esp32Comp} shows both microcontrollers side by side. 
+\subsection{ESP32 Modes and BLE}
+The esp32 development board from wemos consumes around $43mA$ in idle and $0.014mA$ in deepsleep. This is much higher than esp32 wroom board which is supposed to only consume $20mA$ in idle and $0.01mA$ in deepsleep\cite{InsightI15esp32ModesWroom:online}. \Cref{fig:esp32Comp} shows both microcontrollers side by side. 
 
-\begin{figure}[H!]
+\begin{figure}[h!]
     \centering
-    \includegraphics[scale=0.4]{figures/esp32-wroom-wemos.png}% picture filename
-    \caption{ESP32 wroom (left) and Wemos development board.}\label{fig:esp32Comp}
+    \includegraphics[scale=0.4]{figures/esp32WroomWemos.png}% picture filename
+    \caption{ESP32 wroom (left) and Wemos development board (right).}\label{fig:esp32Comp}
 \end{figure}
 
-The development board has a microUSB controller and many integrated circuits to prevent short circuits and other problems as well as over an LED, microUSB in and buttons for reseting and power of microUSB. All these extra components add up to the significant power consumption difference. For the production we will thus use esp32 wrooms and soldier the connections our selfs. So instead of using our numbers, we will use the numbers from the esp32 wroom controller.\\
 
-The power consumption also changes during boot time and while bluetooth is active. In the former, the processor takes a lot of power, while in the latter it is the radio chip, including antenna. \\
 
-In our tests waking up from deepsleep took around $300ms$ and increased current consumption to about $80mA$ \footnote{This was done via eye measurement with a lot of fluctuations, so the numbers are really only approximates.}. Especially, the wake up time seems quite slow and we would like to test this further and search for wake up optimizations in further research.
-During sending and receiving of data, the power consumption increased to $70mA$.\\
+The development board has a microusb controller and additional current controls and a power LED. These extra components add up to the significant power consumption difference. For the production we thus plan on using a esp32 Wroom and soldier the connections ourselfs. Thus, instead of using our numbers we will use the numbers from the esp32 wroom controller\cite{InsightI15esp32ModesWroom:online}.\\
 
-To summarize each wake up costs at least
+The power consumption also changes during boot time and during data transmission. In the former, the processor consumes a lot of power, while in the latter, the radio chip, including antenna, consumes the majority of extra power. Unfortuately, we were not able to get a esp32 wroom in time for the tests, so we have to infere values from the esp32 wemos development board. \\
+
+In our tests, waking up from deepsleep took around $250ms$ and increased current consumption to about $80mA$\footnote{This was done via eye measurment with a lot of fluctations, so the numbers are really only approximates.}. Especially, the wake up time seems quite slow and we would like to test this further and search for wake up optimizations in further research.
+During the initialization of the bluetooth radio power consumption was similar to the wake up, again showing that the processor is tasked more heavily. Sending and receiving of data, the power consumption increased to $50mA$ but for such short time periods that in our calculation we omit sending information. Unfortuately, we did not have the time to test how much power it cost to act as a slave and search for ble beacons and receive data.\\
+
+
+To summarize in idle the esp32 consumes
 \begin{equation*}
-    80mA * 7V / 3600 * (3/10) = 12Wh
+    0.02A * 5V *1h= 0.1Wh
 \end{equation*}
+while each wake up costs
+\begin{equation*}
+    0.08A * 5V *1h= 0.4Wh
+\end{equation*}
+per hour so for a startup time of $\frac{1}{3}s$  that constitutes to 
+\begin{equation*}
+    0.4Wh / (3600 / \frac{1}{3}) = 0.000037W = 0.037mW
+\end{equation*}
+Initializing the bluetooth radio is fast at around $\frac{1}{10}s$ and consumes 
+\begin{gather*}
+        0.08A * 5V * 1h = 0.4Wh \\
+        0.4Wh / (3600 / \frac{1}{10}) = 0.000011W = 0.011mW 
+\end{gather*}
 
-
-
-
-\subsection{BLE Tests}
+\subsection{Summary}
+Together the laser and sensor consume $0.133W$. The esp32 consumes $0.01mA$ in deepsleep and $20mA$ in idle. It spikes at around $80mA$ for initialization periods which total $\frac{4.3}{10}s$ and thus each start costs $0.048mW$.
