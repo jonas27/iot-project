@@ -1,9 +1,9 @@
 \section{Goal Design}
 As mentioned in the beginning of this report, the major influencer for the goal design is the battery consumption. We presented our findings on how much battery each goal component uses in the chapter Tests and in this chapter draw conclusions for the actual goal design.
 
-The power consumption of each component is quite significant. Together, the laser  and sensor consume $28.5mA$ while the esp consumes $80mA$ during computation intensive tasks and $20mA$ in idle. Letting the lasers run all the time is thus similar to letting the esp32 run on idle all time. Letting the laser run at al times makes little sense though and booting up the esp32 more than needed is also a waste of power. So our conclusion is to make the goal smart and the esp32 has a hold function for its pins that enables us to do excatly\cite{GPIORTCG11esp32letPinsOn:online}. The function "esp_err_trtc_gpio_hold_en(gpio_num_tgpio_num)" holds the current on a specific port even when the esp32 goes into deepsleep.
+The power consumption of each component is quite significant. Together, the laser  and sensor consume $28.5mA$ while the esp32 consumes $80mA$ during computation intensive tasks and $20mA$ in idle. Letting the lasers run all the time is thus similar to letting the esp32 run on idle all time. Doing the former makes little sense though and booting up the esp32 more than needed is also a waste of power. So a well defined balance is needed and optimally, one which adapts to the usage pattern of the foosball table.  Thus, our goal is to make the goal smart and the esp32 has a hold function for its pins that enables us to do excatly that. The function "esp_err_trtc_gpio_hold_en(gpio_num_tgpio_num)" holds the current on a specific port even when the esp32 goes into deepsleep\cite{GPIORTCG11esp32letPinsOn:online}.
 
-This allows a va
+This allows us to control a transistor even when the esp32 is in deepsleep. We thus still power the laser and sensor directly from the battery, but the esp32 has full control over it. 
 
 So going forward our intention is to have a smart way of powering on and of both devices. 
 
